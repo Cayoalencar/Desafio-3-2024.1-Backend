@@ -1,24 +1,85 @@
+/* Estilo básico para a Pokédex */
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff; /* Azul claro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
-div.pageContent {
-  margin-top: 5em;
-  height: 100%;
+.pokedex {
+  background-color: #b3cde0;
+  border: 5px solid #ff0000; /* Borda vermelha mais forte */
+  border-radius: 15px; /* Borda arredondada */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada */
+  padding: 20px;
+  width: 300px;
   text-align: center;
+  position: relative;
 }
 
-img.img_sprite_front_default {
-  width: 96px;
-  height: 96px;
-  margin-block: 1em;
+.pokedex::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 5px solid #ff0000; /* A borda interna vermelha */
+  border-radius: 15px;
+  pointer-events: none; /* Para não interferir no clique */
+  z-index: -1;
 }
 
-button#previous,
-button#next {
+.header {
+  background-color: #ffcb05;
+  padding: 10px 0;
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+  color: #3d5a80;
+}
+
+.pokemon-display {
+  margin: 20px 0;
+}
+
+.pokemon-display img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
+#name {
+  font-size: 1.5rem;
+  color: #3d5a80;
+  margin-top: 10px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  background-color: #ffcb05;
   border: none;
   padding: 10px 20px;
-  text-align: center;
-  display: inline-block;
-  font-size: 18px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #f4a261;
+}
+
+button:focus {
+  outline: none;
 }

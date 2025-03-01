@@ -9,8 +9,19 @@ function changeText(id, text) {
 }
 
 // Variáveis globais
-const totalPokemons = 1292; // limit de pokemons
+const totalPokemons = 1025; // limit de pokemons
 let currentPokemonIndex = 1; // offset (início dos pokemons)
+
+// Função para formatar tipos do Pokémon
+function formatTypes(types) {
+  return types.map(type => type.type.name.toUpperCase()).join(", ");
+}
+
+// Função para formatar habilidades do Pokémon
+function formatAbilities(abilities) {
+  return abilities.map(ability => ability.ability.name.replace("-", " ")).join(", ");
+}
+
 
 // Função para buscar um Pokémon pelo índice
 async function fetchPokemon(index) {
@@ -22,7 +33,22 @@ async function fetchPokemon(index) {
 
     // Atualiza o nome e a imagem do Pokémon
     changeText("name", data.name.toUpperCase());
-    changeImage("img_sprite_front_default", data.sprites.front_default || "../assets/missingno.png");
+    changeImage("img_sprite_front_default", data.sprites.front_default);
+
+      // Atualiza outras informações
+      changeText("height", `Altura: ${data.height / 10} m`);
+      changeText("weight", `Peso: ${data.weight / 10} kg`);
+      changeText("types", `Tipos: ${formatTypes(data.types)}`);
+      changeText("abilities", `Habilidades: ${formatAbilities(data.abilities)}`);
+  
+      // Exibir estatísticas
+      const statsList = document.getElementById("stats");
+      statsList.innerHTML = ""; // Limpa antes de atualizar
+      data.stats.forEach(stat => {
+        const statItem = document.createElement("li");
+        statItem.innerText = `${stat.stat.name.toUpperCase()}: ${stat.base_stat}`;
+        statsList.appendChild(statItem);
+      });
   } catch (error) {
     console.error("Erro ao buscar Pokémon:", error);
   }

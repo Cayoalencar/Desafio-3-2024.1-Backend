@@ -1,7 +1,7 @@
-/* Estilo básico para a Pokédex */
+
 body {
   font-family: Arial, sans-serif;
-  background-color: #ffffff; /* Azul claro */
+  background-color: #ffffff; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,9 +13,9 @@ body {
   background-color: #b3cde0;
   border: 5px solid #ff0000; /* Borda vermelha mais forte */
   border-radius: 15px; /* Borda arredondada */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra mais escura*/
   padding: 20px;
-  width: 300px;
+  width: 500px;
   text-align: center;
   position: relative;
 }
@@ -44,10 +44,33 @@ h1 {
   margin: 0;
   color: #3d5a80;
 }
+p {
+  font-size: 1rem;
+  margin: 0;
+  color: #3d5a80;
+}
+
+.stats-container {
+  list-style: none; 
+  padding: 0; 
+  margin: 0;
+}
+
+li {
+  list-style-type: none; 
+  display: inline-block;
+  margin-right: 10px;
+}
+
 
 .pokemon-display {
   margin: 20px 0;
+  font-size: 1rem;
+  color: #3d5a80;
+  font-weight: bold;
+  margin-bottom: 4px;
 }
+
 
 .pokemon-display img {
   width: 150px;
@@ -59,11 +82,6 @@ h1 {
   font-size: 1.5rem;
   color: #3d5a80;
   margin-top: 10px;
-}
-
-.navigation {
-  display: flex;
-  justify-content: space-between;
 }
 
 button {
